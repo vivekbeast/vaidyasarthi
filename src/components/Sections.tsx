@@ -428,7 +428,7 @@ export const Hero: React.FC<{ onScanQR: () => void }> = ({ onScanQR }) => {
                 A focused professional community for doctors and medical students with clinical discussions, meaningful connections, and practical tools in one workspace.
               </span>
               <span className="mobile-only">
-                A focused medical network for verified doctors & students — with clinical discussions and bedside tools.
+                A focused medical network for verified doctors & students with clinical discussions and bedside tools.
               </span>
             </p>
 
