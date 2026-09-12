@@ -1,0 +1,969 @@
+/* ==========================================================================
+   VAIDYASARTHI V3 — WHITE PREMIUM MEDICAL TECH SHOWCASE
+   Light theme × Subtle green accents × Top-End Android Hardware Bezel
+   Senior UI/UX Minimalist Conversion Layout
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+:root {
+  /* ── Light Palette ── */
+  --bg: #ffffff;
+  --bg-off: #f9fbf9;
+  --bg-mint: #f2faf5;
+  --bg-hero: linear-gradient(180deg, #f2faf5 0%, #fbfdfc 45%, #ffffff 100%);
+  --surface: #ffffff;
+  --surface-2: #f2f5f3;
+  --surface-3: #e6ede8;
+  
+  /* ── Brand Colors ── */
+  --brand: #0d9b5c;
+  --brand-light: #10b96d;
+  --brand-dim: rgba(13, 155, 92, 0.08);
+  --brand-border: rgba(13, 155, 92, 0.18);
+  --brand-glow: rgba(13, 155, 92, 0.22);
+  --brand-gradient: linear-gradient(135deg, #0d9b5c 0%, #10b96d 50%, #34d399 100%);
+  
+  /* ── Text ── */
+  --text: #0f1f17;
+  --text-2: #334d40;
+  --text-3: #6b8275;
+  --border: rgba(13, 155, 92, 0.08);
+  --border-hard: rgba(0, 0, 0, 0.07);
+  
+  /* ── Shadows & 3D ── */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 8px 24px rgba(13, 155, 92, 0.06), 0 2px 6px rgba(0, 0, 0, 0.03);
+  --shadow-lg: 0 16px 48px rgba(13, 155, 92, 0.08), 0 4px 12px rgba(0, 0, 0, 0.04);
+  --shadow-xl: 0 24px 60px rgba(15, 31, 23, 0.1), 0 6px 18px rgba(0, 0, 0, 0.04);
+  --shadow-phone: 
+    0 35px 80px -20px rgba(0, 0, 0, 0.35),
+    0 15px 35px -10px rgba(13, 155, 92, 0.16),
+    0 0 0 1px rgba(0, 0, 0, 0.7);
+  
+  /* ── Typography & Sizing ── */
+  --font-head: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --nav-h: 68px;
+  --max-w: 1180px;
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out: cubic-bezier(0.33, 1, 0.68, 1);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+a { color: inherit; text-decoration: none; }
+button { font-family: inherit; cursor: pointer; border: none; background: none; color: inherit; }
+img { max-width: 100%; height: auto; display: block; }
+ul { list-style: none; }
+
+/* ── Layout ── */
+.wrap {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-head);
+}
+
+/* ── Hero Typography ── */
+.hero-title {
+  font-size: clamp(2.4rem, 4.6vw, 4rem);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 1.08;
+  margin-bottom: 16px;
+  color: var(--text);
+}
+
+.hero-subtitle {
+  font-size: 1.15rem;
+  font-weight: 400;
+  color: var(--text-2);
+  margin-bottom: 24px;
+  line-height: 1.5;
+  letter-spacing: -0.01em;
+}
+
+/* ═══════════════════════════════════════════════
+   FLAGSHIP ANDROID DEVICE MOCKUP (Top-End S24/Pixel)
+   Subtle dark titanium/gray bezels with punch-hole
+   ═══════════════════════════════════════════════ */
+.phone-3d-wrap {
+  perspective: 1200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.phone {
+  width: 280px;
+  border-radius: 42px;
+  padding: 8px;
+  /* Top-end subtle dark titanium/graphite bezel */
+  background: linear-gradient(150deg, #2e3338 0%, #1c1f22 45%, #0f1113 100%);
+  box-shadow: var(--shadow-phone);
+  position: relative;
+  flex-shrink: 0;
+  transform-style: preserve-3d;
+  transition: transform 0.6s var(--ease);
+}
+
+/* Physical metallic frame outer ring */
+.phone::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: 43px;
+  background: linear-gradient(135deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0.02) 40%, rgba(0,0,0,0.4) 100%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Flagship Android Side Buttons (Power & Volume) */
+.phone-side-power {
+  position: absolute;
+  right: -3px;
+  top: 95px;
+  width: 3px;
+  height: 48px;
+  background: #383e44;
+  border-radius: 0 2px 2px 0;
+  box-shadow: 1px 0 2px rgba(0,0,0,0.5);
+}
+
+.phone-side-vol {
+  position: absolute;
+  right: -3px;
+  top: 155px;
+  width: 3px;
+  height: 32px;
+  background: #383e44;
+  border-radius: 0 2px 2px 0;
+  box-shadow: 1px 0 2px rgba(0,0,0,0.5);
+}
+
+/* Flagship Android Top Center Punch-Hole Camera */
+.phone-punch-hole {
+  width: 10px;
+  height: 10px;
+  background: #050505;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  position: absolute;
+  top: 13px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 25;
+  box-shadow: inset 0 0 2px rgba(0,0,0,0.9), 0 0 1px rgba(255,255,255,0.3);
+}
+
+/* Subtle earpiece slit at the very top edge */
+.phone-earpiece {
+  width: 44px;
+  height: 2px;
+  background: #22262a;
+  border-radius: 2px;
+  position: absolute;
+  top: 4px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 25;
+}
+
+.phone-screen {
+  width: 100%;
+  border-radius: 35px;
+  overflow: hidden;
+  background: #ffffff;
+  aspect-ratio: 9 / 19.5;
+  position: relative;
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.12);
+  z-index: 2;
+}
+
+.phone-screen img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+}
+
+/* Screen Glass Glare */
+.phone-glare {
+  position: absolute;
+  inset: 0;
+  border-radius: 35px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.16) 0%, rgba(255, 255, 255, 0.02) 40%, transparent 65%);
+  pointer-events: none;
+  z-index: 20;
+}
+
+
+/* ── Header Logo Lockup ── */
+.header-logo-img {
+  height: 38px;
+  width: auto;
+  display: block;
+  transition: transform 0.2s ease;
+}
+.header-logo-text {
+  font-family: var(--font-head);
+  font-weight: 800;
+  font-size: 1.34rem;
+  letter-spacing: -0.035em;
+  color: var(--text);
+  line-height: 1;
+}
+
+/* ── Button Atoms ── */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 13px 26px;
+  border-radius: 14px;
+  background: var(--brand-gradient);
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.94rem;
+  transition: transform 0.2s var(--ease), box-shadow 0.2s ease;
+  box-shadow: 0 4px 18px rgba(13, 155, 92, 0.28);
+  letter-spacing: -0.01em;
+}
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(13, 155, 92, 0.38);
+}
+
+.btn-play {
+  display: inline-flex;
+  align-items: center;
+  gap: 11px;
+  padding: 10px 22px;
+  border-radius: 13px;
+  background: linear-gradient(135deg, #0d9b5c 0%, #10b96d 55%, #059669 100%);
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 0.92rem;
+  transition: transform 0.2s var(--ease), box-shadow 0.2s ease, filter 0.2s ease;
+  box-shadow: 0 6px 20px rgba(13, 155, 92, 0.28);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  position: relative;
+  overflow: hidden;
+}
+.btn-play::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -60%;
+  width: 40%;
+  height: 200%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.28), transparent);
+  transform: rotate(25deg);
+  animation: buttonGlint 4.5s ease-in-out infinite;
+  pointer-events: none;
+}
+@keyframes buttonGlint {
+  0%, 70% { left: -60%; }
+  100% { left: 160%; }
+}
+.btn-play:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px rgba(13, 155, 92, 0.4);
+  filter: brightness(1.05);
+}
+.btn-play .play-icon { display: flex; align-items: center; flex-shrink: 0; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.15)); }
+.btn-play .play-label { display: flex; flex-direction: column; align-items: flex-start; line-height: 1.15; }
+.btn-play .play-label .sm { font-size: 0.58rem; font-weight: 700; color: rgba(255, 255, 255, 0.9); text-transform: uppercase; letter-spacing: 0.08em; }
+.btn-play .play-label .lg { font-size: 0.98rem; font-weight: 800; color: #ffffff; letter-spacing: -0.01em; }
+
+/* ── Organic Phone Levitation Float ── */
+.phone-levitate {
+  animation: phoneFloat 6.5s ease-in-out infinite;
+}
+@keyframes phoneFloat {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-7px); }
+}
+
+/* ── Contextual Floating Badges Around Hero Phone ── */
+.hero-context-badge {
+  position: absolute;
+  padding: 7px 14px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(13, 155, 92, 0.16);
+  box-shadow: 0 8px 24px rgba(15, 31, 23, 0.08);
+  font-size: 0.74rem;
+  font-weight: 700;
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  pointer-events: none;
+  z-index: 25;
+  white-space: nowrap;
+}
+.hero-badge-1 {
+  top: 18%;
+  left: 0;
+  animation: floatBadge1 7s ease-in-out infinite;
+}
+.hero-badge-2 {
+  top: 48%;
+  right: 0;
+  animation: floatBadge2 7.5s ease-in-out infinite 0.4s;
+}
+.hero-badge-3 {
+  bottom: 18%;
+  left: 0;
+  animation: floatBadge3 8s ease-in-out infinite 0.8s;
+}
+@keyframes floatBadge1 {
+  0%, 100% { transform: translateX(-100%) translateX(-22px) translateY(0px); }
+  50% { transform: translateX(-100%) translateX(-22px) translateY(-8px); }
+}
+@keyframes floatBadge2 {
+  0%, 100% { transform: translateX(100%) translateX(22px) translateY(0px); }
+  50% { transform: translateX(100%) translateX(22px) translateY(8px); }
+}
+@keyframes floatBadge3 {
+  0%, 100% { transform: translateX(-100%) translateX(-22px) translateY(0px); }
+  50% { transform: translateX(-100%) translateX(-22px) translateY(-7px); }
+}
+
+@media (max-width: 1080px) {
+  .hero-context-badge {
+    display: none !important;
+  }
+}
+
+/* ── Display Utilities ── */
+.desktop-only { display: block; }
+.mobile-only { display: none !important; }
+
+/* ── Hero Eyebrow Tag ── */
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 13px;
+  border-radius: 20px;
+  background: rgba(13, 155, 92, 0.08);
+  border: 1px solid rgba(13, 155, 92, 0.18);
+  color: var(--brand);
+  font-size: 0.74rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+/* ── Hero Proof Row ── */
+.hero-proof-line {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 18px;
+  font-size: 0.84rem;
+  font-weight: 600;
+  color: var(--text-2);
+  letter-spacing: -0.01em;
+}
+.hero-proof-line .dot {
+  color: var(--brand);
+  font-weight: 800;
+  font-size: 1.1rem;
+}
+
+/* ── Mobile-Specific Proof Row (Dynamically Scaled Single Clean Line) ── */
+.hero-proof-mobile {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(4px, 1.8vw, 8px);
+  margin-top: 12px;
+  font-size: clamp(0.66rem, 2.5vw, 0.74rem);
+  font-weight: 700;
+  color: var(--text-2);
+  white-space: nowrap;
+}
+.hero-proof-mobile .dot {
+  color: var(--brand);
+  font-weight: 800;
+  font-size: 0.95rem;
+}
+
+/* ── Hero Phone Caption Bar & Carousel Dots ── */
+.phone-caption-bar {
+  margin-top: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(13, 155, 92, 0.16);
+  border-radius: 16px;
+  padding: 8px 16px;
+  box-shadow: 0 6px 20px rgba(15, 31, 23, 0.07);
+  max-width: 320px;
+  width: 100%;
+  animation: fadeIn 0.4s ease;
+}
+.caption-dot {
+  cursor: pointer;
+  border: none;
+  padding: 0;
+  transition: all 0.3s ease;
+}
+.caption-dot:hover {
+  filter: brightness(0.9);
+}
+
+/* Animated ECG Heartbeat SVG */
+.ecg-svg-path {
+  stroke-dasharray: 220;
+  stroke-dashoffset: 220;
+  animation: ecgStroke 2.5s ease-in-out infinite;
+}
+@keyframes ecgStroke {
+  0% {
+    stroke-dashoffset: 220;
+    opacity: 0.3;
+  }
+  35% {
+    opacity: 1;
+  }
+  75% {
+    stroke-dashoffset: 0;
+    opacity: 1;
+  }
+  100% {
+    stroke-dashoffset: -220;
+    opacity: 0.2;
+  }
+}
+
+/* Sound/Activity Wave Bars */
+.wave-bar {
+  width: 2.5px;
+  background: var(--brand);
+  border-radius: 2px;
+  animation: wavePulse 1.2s ease-in-out infinite;
+  display: inline-block;
+}
+.wave-bar:nth-child(1) { height: 7px; animation-delay: 0.1s; }
+.wave-bar:nth-child(2) { height: 15px; animation-delay: 0.3s; }
+.wave-bar:nth-child(3) { height: 10px; animation-delay: 0.2s; }
+.wave-bar:nth-child(4) { height: 13px; animation-delay: 0.4s; }
+
+@keyframes wavePulse {
+  0%, 100% { transform: scaleY(0.4); }
+  50% { transform: scaleY(1.4); }
+}
+
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 22px;
+  border-radius: 14px;
+  border: 1.5px solid var(--border-hard);
+  color: var(--text-2);
+  font-weight: 600;
+  font-size: 0.92rem;
+  transition: all 0.2s ease;
+  background: #ffffff;
+}
+.btn-ghost:hover {
+  border-color: var(--brand-border);
+  color: var(--brand);
+  background: var(--brand-dim);
+}
+
+/* ── Scroll reveal base ── */
+.reveal { opacity: 0; transform: translateY(28px); }
+.reveal-3d { opacity: 0; transform: perspective(800px) rotateX(6deg) translateY(40px); }
+
+/* ── 3D Tilt Feature Card ── */
+.feature-card {
+  padding: clamp(20px, 3vw, 30px);
+  border-radius: 22px;
+  background: #ffffff;
+  border: 1px solid rgba(13, 155, 92, 0.09);
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.4s var(--ease), box-shadow 0.4s ease, border-color 0.4s ease;
+  transform-style: preserve-3d;
+}
+.feature-card:hover {
+  transform: translateY(-5px) rotateX(1.5deg) rotateY(-1.5deg);
+  box-shadow: 0 16px 36px rgba(13, 155, 92, 0.12);
+  border-color: rgba(13, 155, 92, 0.28);
+}
+
+/* ── Responsive Grids ── */
+.features-grid-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 18px;
+}
+
+.trust-steps-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 16px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.footer-links-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 30px;
+  margin-bottom: 36px;
+}
+
+/* ── Final CTA Showcase ── */
+.final-cta-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 40px;
+  align-items: center;
+  text-align: left;
+}
+.final-cta-img-wrap {
+  position: relative;
+  border-radius: 24px;
+  overflow: visible;
+}
+.final-cta-img {
+  width: 100%;
+  height: auto;
+  max-height: 400px;
+  object-fit: cover;
+  object-position: center top;
+  border-radius: 22px;
+  box-shadow: 0 20px 48px rgba(15, 31, 23, 0.12), 0 0 0 1px rgba(13, 155, 92, 0.15);
+  display: block;
+}
+.final-cta-float-badge {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(13, 155, 92, 0.2);
+  border-radius: 14px;
+  padding: 8px 14px;
+  font-size: 0.76rem;
+  font-weight: 700;
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  box-shadow: 0 8px 24px rgba(15, 31, 23, 0.1);
+  pointer-events: none;
+  z-index: 10;
+  white-space: nowrap;
+}
+.final-cta-badge-top {
+  top: 16px;
+  left: 16px;
+}
+.final-cta-badge-bottom {
+  bottom: 16px;
+  right: 16px;
+}
+@media (max-width: 959px) {
+  .final-cta-grid {
+    grid-template-columns: 1fr !important;
+    gap: 32px !important;
+    text-align: center !important;
+  }
+  .final-cta-copy {
+    margin: 0 auto;
+    max-width: 520px;
+  }
+  .final-cta-btn-wrap {
+    justify-content: center !important;
+  }
+  .final-cta-features-list {
+    justify-content: center !important;
+  }
+  .final-cta-img {
+    max-height: 320px !important;
+  }
+}
+@media (max-width: 480px) {
+  .final-cta-float-badge {
+    padding: 6px 10px !important;
+    font-size: 0.7rem !important;
+  }
+  .final-cta-badge-top {
+    top: 10px !important;
+    left: 10px !important;
+  }
+  .final-cta-badge-bottom {
+    bottom: 10px !important;
+    right: 10px !important;
+  }
+}
+
+/* ═══════════════════════════════════════════════
+   TABLET RESPONSIVE TUNING (768px – 1024px)
+   ═══════════════════════════════════════════════ */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .wrap {
+    padding: 0 24px;
+  }
+
+  .features-grid-cards {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 18px !important;
+  }
+
+  .trust-steps-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 16px !important;
+  }
+
+  .footer-links-grid {
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 20px !important;
+  }
+}
+
+/* ── Medium Tablet (768px – 959px) Specific Polish ── */
+@media (min-width: 768px) and (max-width: 959px) {
+  .hero-title {
+    font-size: clamp(2.3rem, 4.4vw, 2.85rem) !important;
+    line-height: 1.12 !important;
+  }
+
+  .hero-subtitle {
+    font-size: 1.05rem !important;
+    max-width: 540px !important;
+    margin: 0 auto 20px auto !important;
+    line-height: 1.55 !important;
+  }
+
+  .hero-proof-line {
+    justify-content: center !important;
+  }
+
+  .hero-phone-area {
+    margin-top: 24px !important;
+  }
+
+  .phone {
+    width: 270px !important;
+  }
+
+  .showcase-grid {
+    gap: 32px !important;
+  }
+
+  .showcase-grid > div:last-child {
+    text-align: center !important;
+  }
+
+  .showcase-grid ul {
+    align-items: flex-start !important;
+    text-align: left !important;
+    max-width: 440px !important;
+    margin: 0 auto 24px auto !important;
+  }
+
+  .showcase-grid .btn-primary {
+    margin: 0 auto !important;
+  }
+}
+
+/* ═══════════════════════════════════════════════
+   MOBILE RESPONSIVE BREAKPOINTS (< 768px)
+   ═══════════════════════════════════════════════ */
+@media (max-width: 767px) {
+  :root {
+    --nav-h: 64px;
+  }
+
+  .desktop-only { display: none !important; }
+  .mobile-only { display: block !important; }
+  span.mobile-only { display: inline !important; }
+  div.mobile-only { display: flex !important; }
+
+  .wrap {
+    padding: 0 16px;
+  }
+
+  .header-logo-img {
+    height: 34px !important;
+  }
+
+  .header-logo-text {
+    font-size: 1.25rem !important;
+  }
+
+  /* ── Hero on Mobile: Compact, Direct Focus on Download & App Screen ── */
+  #hero {
+    padding-top: calc(var(--nav-h) + 12px) !important;
+    padding-bottom: 24px !important;
+    min-height: auto !important;
+    overflow-x: hidden !important;
+  }
+
+  .hero-grid {
+    gap: 12px !important;
+    padding: 0 !important;
+  }
+
+  .hero-title {
+    font-size: clamp(1.72rem, 6.5vw, 2rem) !important;
+    line-height: 1.14 !important;
+    margin-bottom: 8px !important;
+    letter-spacing: -0.03em !important;
+  }
+
+  .hero-subtitle {
+    font-size: 0.88rem !important;
+    line-height: 1.44 !important;
+    margin-bottom: 14px !important;
+    max-width: min(330px, 100%) !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    color: var(--text-2) !important;
+  }
+
+  /* Hide Scan QR on Mobile */
+  .btn-qr-hero {
+    display: none !important;
+  }
+
+  /* Sleek, elegantly-proportioned Google Play CTA */
+  .hero-cta-wrap {
+    flex-direction: column !important;
+    width: 100% !important;
+    align-items: center !important;
+    gap: 0 !important;
+  }
+
+  .btn-play {
+    width: auto !important;
+    min-width: 195px !important;
+    max-width: 215px !important;
+    margin: 0 auto !important;
+    justify-content: center !important;
+    padding: 8px 16px !important;
+    border-radius: 11px !important;
+    box-shadow: 0 4px 14px rgba(13, 155, 92, 0.24) !important;
+  }
+
+  .btn-play .play-icon svg {
+    width: 19px !important;
+    height: 19px !important;
+  }
+
+  .btn-play .play-label .sm {
+    font-size: 0.52rem !important;
+    letter-spacing: 0.08em !important;
+  }
+
+  .btn-play .play-label .lg {
+    font-size: 0.9rem !important;
+    font-weight: 800 !important;
+  }
+
+  .hero-proof-mobile {
+    display: flex !important;
+    margin-top: 10px !important;
+    font-size: clamp(0.66rem, 2.5vw, 0.74rem) !important;
+    gap: clamp(4px, 1.8vw, 8px) !important;
+    color: var(--text-3) !important;
+  }
+
+  /* Phone Mockup on Mobile: Centered, High-End Flagship Android */
+  .hero-phone-area {
+    margin-top: 16px !important;
+  }
+
+  .phone {
+    width: 250px !important;
+    border-radius: 36px !important;
+    padding: 6px !important;
+  }
+
+  .phone-screen {
+    border-radius: 30px !important;
+  }
+
+  .phone-punch-hole {
+    width: 8px !important;
+    height: 8px !important;
+    top: 11px !important;
+  }
+
+  .phone-caption-bar {
+    margin-top: 10px !important;
+    padding: 6px 12px !important;
+    max-width: 270px !important;
+    border-radius: 12px !important;
+  }
+
+  .phone-caption-bar span:first-child {
+    font-size: 0.74rem !important;
+  }
+
+  .phone-caption-bar span:last-child {
+    font-size: 0.64rem !important;
+  }
+
+  /* App Showcase Tabs on Mobile: Smooth swipeable pill track */
+  .showcase-tabs-container {
+    overflow-x: auto !important;
+    justify-content: flex-start !important;
+    padding: 4px 8px !important;
+    scrollbar-width: none !important;
+    -webkit-overflow-scrolling: touch !important;
+    scroll-snap-type: x mandatory !important;
+    margin-bottom: 28px !important;
+    width: 100% !important;
+  }
+
+  .showcase-tabs-container::-webkit-scrollbar {
+    display: none !important;
+  }
+
+  .showcase-tab-btn {
+    padding: 8px 14px !important;
+    font-size: 0.82rem !important;
+    scroll-snap-align: start !important;
+  }
+
+  .showcase-grid > div:last-child {
+    text-align: center !important;
+  }
+
+  .showcase-grid ul {
+    align-items: flex-start !important;
+    text-align: left !important;
+  }
+
+  .showcase-grid .btn-primary {
+    margin: 0 auto !important;
+  }
+
+  /* Features & Trust Single Column on Mobile */
+  .features-grid-cards {
+    grid-template-columns: 1fr !important;
+    gap: 14px !important;
+  }
+
+  .feature-card {
+    padding: 20px 16px !important;
+    border-radius: 18px !important;
+  }
+
+  .trust-steps-grid {
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+  }
+
+  .trust-step-card {
+    padding: 20px 16px !important;
+    border-radius: 18px !important;
+  }
+
+  /* Footer 2-column on mobile */
+  .footer-links-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 24px 16px !important;
+  }
+}
+
+/* ═══════════════════════════════════════════════
+   SMALL MOBILE VIEWPORT POLISH (<= 360px: Galaxy S / iPhone SE)
+   ═══════════════════════════════════════════════ */
+@media (max-width: 360px) {
+  .wrap {
+    padding: 0 12px !important;
+  }
+
+  .header-logo-img {
+    height: 30px !important;
+  }
+
+  .header-logo-text {
+    font-size: 1.12rem !important;
+  }
+
+  .mobile-header-btn {
+    padding: 6px 10px !important;
+    font-size: 0.76rem !important;
+  }
+
+  .hero-title {
+    font-size: 1.62rem !important;
+  }
+
+  .hero-subtitle {
+    font-size: 0.84rem !important;
+    max-width: 275px !important;
+  }
+
+  .phone {
+    width: 232px !important;
+    border-radius: 32px !important;
+    padding: 5px !important;
+  }
+
+  .phone-screen {
+    border-radius: 27px !important;
+  }
+
+  .phone-caption-bar {
+    max-width: 240px !important;
+    padding: 5px 10px !important;
+  }
+
+  .footer-links-grid {
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+  }
+}
+
+/* ── Mobile Sticky Bar Sizing ── */
+@media (max-width: 640px) {
+  .mobile-sticky {
+    display: block !important;
+  }
+  body {
+    padding-bottom: 64px;
+  }
+}
+

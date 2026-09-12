@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="/assets/logo-icon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- Instant Redirect for Play Store routes -->
+    <script>
+      (function() {
+        var PLAY_STORE = 'https://play.google.com/store/apps/details?id=com.vaidyasarthi.app';
+        var routes = ['/download', '/download/', '/playstore', '/playstore/', '/play', '/play/', '/app', '/app/', '/store', '/store/', '/install', '/install/', '/get', '/get/'];
+        var path = window.location.pathname.toLowerCase();
+        if (routes.indexOf(path) !== -1 || window.location.search.indexOf('redirect=playstore') !== -1 || window.location.search.indexOf('download') !== -1) {
+          window.location.replace(PLAY_STORE);
+        }
+      })();
+    </script>
+
+    <!-- Primary Meta Tags -->
+    <title>VaidyaSarthi — Clinical Intelligence & Verified Medical Workspace</title>
+    <meta name="title" content="VaidyaSarthi — Clinical Intelligence & Verified Medical Workspace" />
+    <meta
+      name="description"
+      content="VaidyaSarthi is India's verified professional workspace for doctors and medical students. Access bedside clinical calculators, debate complex cases, and connect with peers."
+    />
+    <meta
+      name="keywords"
+      content="doctors community, medical community, medical students, doctor networking, clinical calculators, GFR calculator, BMI calculator, verified physicians, medical cases, NMC, MCI"
+    />
+    <meta name="theme-color" content="#ffffff" />
+
+    <!-- Open Graph / Facebook / Instagram -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://vaidyasarthi.com/" />
+    <meta property="og:title" content="VaidyaSarthi — Clinical Intelligence & Verified Medical Workspace" />
+    <meta
+      property="og:description"
+      content="India's clinical intelligence platform. Evidence-based bedside calculators, peer case debates, and 24-hour ephemeral messaging for healthcare professionals."
+    />
+    <meta property="og:image" content="/assets/real-community.jpg" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://vaidyasarthi.com/" />
+    <meta property="twitter:title" content="VaidyaSarthi — Clinical Intelligence & Verified Medical Workspace" />
+    <meta
+      property="twitter:description"
+      content="India's clinical intelligence platform. Evidence-based bedside calculators, peer case debates, and 24-hour ephemeral messaging for healthcare professionals."
+    />
+    <meta property="twitter:image" content="/assets/real-community.jpg" />
+
+    <!-- Preload Hero App Screen for Instant Display -->
+    <link rel="preload" as="image" href="/assets/hero-app-screen.jpg" fetchpriority="high" />
+    <link rel="preload" as="image" href="/assets/real-profile.jpg" />
+    <link rel="preload" as="image" href="/assets/real-clinical.jpg" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
