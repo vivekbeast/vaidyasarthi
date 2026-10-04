@@ -4,7 +4,6 @@ import { Header, Footer, MobileSticky, GetAppModal, LegalModal } from './compone
 import {
   Hero,
   AppShowcase,
-  Features,
   Pro,
   Privacy,
   Audience,
@@ -47,7 +46,7 @@ const App: React.FC = () => {
       <main>
         <Hero onScanQR={openApp} />
         <AppShowcase />
-        <Features />
+        {/* <Features /> */}
         <Pro />
         <Privacy />
         <Audience />

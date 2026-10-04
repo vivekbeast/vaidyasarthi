@@ -4,7 +4,6 @@ import { BrandLockup, CONTACT_EMAIL, INSTAGRAM_HANDLE, INSTAGRAM_URL, InstagramI
 
 const NAV_LINKS = [
   { label: 'Inside the app', href: '#showcase' },
-  { label: 'Features', href: '#features' },
   { label: 'Pro', href: '#pro' },
   { label: 'Privacy', href: '#privacy' },
   { label: 'FAQ', href: '#faq' },
@@ -93,7 +92,6 @@ export const Footer: React.FC<{ onLegal: (type: string) => void }> = ({ onLegal 
         <div className="footer-col">
           <h4>Product</h4>
           <a href="#showcase">Inside the app</a>
-          <a href="#features">Features</a>
           <a href="#pro">Postings Pro</a>
           <a href="#privacy">Privacy</a>
           <a href="#verification">Verification</a>
