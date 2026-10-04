@@ -1,87 +1,62 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { Header, Footer, MobileSticky, GetAppModal, LegalModal } from './components/Chrome';
 import {
-  Header,
   Hero,
   AppShowcase,
-  FeaturesGrid,
-  Trust,
+  Features,
+  Pro,
+  Privacy,
+  Audience,
+  Verification,
   FAQ,
   FinalCTA,
-  Footer,
-  MobileSticky,
-  GetAppModal,
-  LegalModal,
 } from './components/Sections';
-
-gsap.registerPlugin(ScrollTrigger);
 
 const App: React.FC = () => {
   const [appModalOpen, setAppModalOpen] = useState(false);
   const [legalType, setLegalType] = useState<string | null>(null);
   const mainRef = useRef<HTMLDivElement>(null);
 
-  // GSAP scroll animations
+  // Scroll-triggered reveals
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // Standard 2D to 3D lift reveals
       gsap.utils.toArray<HTMLElement>('.reveal').forEach((el) => {
         gsap.fromTo(
           el,
-          { opacity: 0, y: 32 },
+          { opacity: 0, y: 28 },
           {
             opacity: 1,
             y: 0,
             duration: 0.7,
             ease: 'power2.out',
-            scrollTrigger: {
-              trigger: el,
-              start: 'top 88%',
-              once: true,
-            },
-          }
-        );
-      });
-
-      // 3D perspective reveals
-      gsap.utils.toArray<HTMLElement>('.reveal-3d').forEach((el) => {
-        gsap.fromTo(
-          el,
-          { opacity: 0, y: 44, rotateX: 6 },
-          {
-            opacity: 1,
-            y: 0,
-            rotateX: 0,
-            duration: 0.8,
-            ease: 'power2.out',
-            scrollTrigger: {
-              trigger: el,
-              start: 'top 85%',
-              once: true,
-            },
+            scrollTrigger: { trigger: el, start: 'top 90%', once: true },
           }
         );
       });
     }, mainRef);
-
     return () => ctx.revert();
   }, []);
 
+  const openApp = () => setAppModalOpen(true);
+
   return (
-    <div ref={mainRef} style={{ position: 'relative' }}>
-      <Header onGetApp={() => setAppModalOpen(true)} />
+    <div ref={mainRef}>
+      <Header onGetApp={openApp} />
 
       <main>
-        <Hero onScanQR={() => setAppModalOpen(true)} />
+        <Hero onScanQR={openApp} />
         <AppShowcase />
-        <FeaturesGrid />
-        <Trust />
+        <Features />
+        <Pro />
+        <Privacy />
+        <Audience />
+        <Verification />
         <FAQ />
-        <FinalCTA onScanQR={() => setAppModalOpen(true)} />
+        <FinalCTA onScanQR={openApp} />
       </main>
 
-      <Footer onLegal={(t) => setLegalType(t)} />
+      <Footer onLegal={setLegalType} />
       <MobileSticky />
       <GetAppModal open={appModalOpen} onClose={() => setAppModalOpen(false)} />
       <LegalModal type={legalType} onClose={() => setLegalType(null)} />

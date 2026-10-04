@@ -121,10 +121,10 @@ export const Medical3DCanvas: React.FC<{
     // Create 3D medical particles
     const particles: Particle[] = [];
     const palette = [
-      'rgba(13, 155, 92, ', // brand emerald
-      'rgba(16, 185, 109, ', // vibrant mint
-      'rgba(52, 211, 153, ', // pastel mint
-      'rgba(14, 165, 233, ', // medical tech cyan
+      'rgba(255, 107, 94, ', // brand coral
+      'rgba(255, 160, 133, ', // coral light
+      'rgba(230, 83, 70, ', // coral dark
+      'rgba(148, 163, 184, ', // slate
     ];
 
     const boundX = width > 1000 ? 750 : width > 600 ? 420 : 200;
@@ -175,7 +175,7 @@ export const Medical3DCanvas: React.FC<{
         toIndex: toIdx,
         progress: 0,
         speed: 0.02 + Math.random() * 0.025,
-        color: Math.random() > 0.4 ? '#10b96d' : '#38bdf8',
+        color: Math.random() > 0.4 ? '#FF6B5E' : '#FFA085',
       });
     };
 
@@ -298,7 +298,7 @@ export const Medical3DCanvas: React.FC<{
 
           if (dist3D < maxConnectDist) {
             const lineAlpha = (1 - dist3D / maxConnectDist) * 0.16 * Math.min(item1.scale, 1);
-            ctx.strokeStyle = `rgba(13, 155, 92, ${lineAlpha.toFixed(3)})`;
+            ctx.strokeStyle = `rgba(255, 107, 94, ${lineAlpha.toFixed(3)})`;
             ctx.lineWidth = 1;
             ctx.beginPath();
             ctx.moveTo(item1.px, item1.py);
@@ -331,8 +331,8 @@ export const Medical3DCanvas: React.FC<{
           // Glowing pulse head
           const pulseGlow = ctx.createRadialGradient(curX, curY, 0, curX, curY, 6 * curScale);
           pulseGlow.addColorStop(0, pulse.color);
-          pulseGlow.addColorStop(0.4, 'rgba(16, 185, 109, 0.7)');
-          pulseGlow.addColorStop(1, 'rgba(16, 185, 109, 0)');
+          pulseGlow.addColorStop(0.4, 'rgba(255, 107, 94, 0.7)');
+          pulseGlow.addColorStop(1, 'rgba(255, 107, 94, 0)');
 
           ctx.fillStyle = pulseGlow;
           ctx.beginPath();
@@ -479,7 +479,7 @@ function drawECGTelemetry(
   const offset = (frame * speed) % 240;
 
   ctx.save();
-  ctx.strokeStyle = 'rgba(13, 155, 92, 0.05)';
+  ctx.strokeStyle = 'rgba(255, 107, 94, 0.07)';
   ctx.lineWidth = 1.5;
   ctx.beginPath();
 
