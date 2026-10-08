@@ -1,0 +1,123 @@
+/* RideLocker pages — standalone from the main site; colours mirror the app (src/ui/theme.ts). */
+:root {
+  --bg: #F6F5FB;
+  --card: #FFFFFF;
+  --text: #15141D;
+  --muted: #62616E;
+  --border: rgba(30, 24, 80, 0.08);
+  --primary: #4A35C8;
+  --primary-text: #3A2AA6;
+  --primary-soft: #EEEBFD;
+  --hero: #15141D;
+  --hero-alt: #25232F;
+  --on-hero: #FFFFFF;
+  --on-hero-muted: rgba(255, 255, 255, 0.66);
+  --success: #167A45;
+  --success-soft: #E7F6EE;
+  --shadow: 0 10px 30px rgba(74, 53, 200, 0.08);
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0E0E10;
+    --card: #17161F;
+    --text: #F5F4FA;
+    --muted: #A6A4B2;
+    --border: rgba(255, 255, 255, 0.08);
+    --primary: #8E7DFF;
+    --primary-text: #C6BDFF;
+    --primary-soft: #241E4A;
+    --hero: #1A1926;
+    --hero-alt: #2A2838;
+    --success: #4AD08D;
+    --success-soft: #10291C;
+    --shadow: none;
+    color-scheme: dark;
+  }
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 16px;
+  line-height: 1.65;
+}
+a { color: var(--primary); text-underline-offset: 3px; }
+a:hover { color: var(--primary-text); }
+.wrap { max-width: 760px; margin: 0 auto; padding: 0 16px; }
+
+/* Top bar */
+.bar { padding: 18px 0; }
+.bar .wrap { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.brand { display: flex; align-items: center; gap: 10px; color: var(--text); text-decoration: none; font-weight: 700; font-size: 1.05rem; }
+.brand img { width: 36px; height: 36px; border-radius: 10px; }
+.bar nav { display: flex; gap: 18px; font-size: 0.92rem; }
+.bar nav a { color: var(--muted); text-decoration: none; font-weight: 500; }
+.bar nav a:hover, .bar nav a[aria-current] { color: var(--primary); }
+
+/* Graphite hero card, like the app's focal cards */
+.hero {
+  background: linear-gradient(160deg, var(--hero-alt), var(--hero));
+  color: var(--on-hero);
+  border-radius: 28px;
+  padding: 36px 28px;
+  margin: 8px 0 28px;
+}
+.hero img.app-icon { width: 76px; height: 76px; border-radius: 20px; display: block; margin-bottom: 18px; }
+.hero h1 { margin: 0 0 8px; font-size: clamp(1.7rem, 5vw, 2.3rem); line-height: 1.2; letter-spacing: -0.02em; }
+.hero p { margin: 0; color: var(--on-hero-muted); max-width: 560px; }
+.hero .meta { margin-top: 14px; font-size: 0.88rem; }
+.pills { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
+.pill { background: rgba(255, 255, 255, 0.1); color: var(--on-hero); border-radius: 999px; padding: 6px 14px; font-size: 0.85rem; font-weight: 500; }
+
+.btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: #4A35C8; color: #FFFFFF; text-decoration: none;
+  padding: 12px 22px; border-radius: 16px; font-weight: 600; margin-top: 22px;
+}
+.btn:hover { background: #3A27A8; color: #FFFFFF; }
+
+/* Content cards */
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 22px;
+  box-shadow: var(--shadow);
+  padding: 24px;
+  margin-bottom: 16px;
+}
+.card h2 { margin: 0 0 10px; font-size: 1.2rem; letter-spacing: -0.01em; }
+.card h3 { margin: 18px 0 6px; font-size: 1rem; }
+.card p { margin: 0 0 12px; }
+.card p:last-child, .card ul:last-child { margin-bottom: 0; }
+.card ul { margin: 0 0 12px; padding-left: 20px; }
+.card li { margin-bottom: 6px; }
+.muted { color: var(--muted); }
+
+.summary { background: var(--primary-soft); border-color: transparent; box-shadow: none; }
+.summary h2 { color: var(--primary-text); }
+
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 12px; margin: 0 0 16px; }
+.grid .card { margin: 0; }
+.grid .card h3 { margin-top: 0; }
+
+.table-wrap { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; font-size: 0.94rem; }
+th, td { text-align: left; vertical-align: top; padding: 10px 8px; border-top: 1px solid var(--border); }
+th { font-weight: 600; width: 34%; }
+
+.tag { display: inline-block; background: var(--success-soft); color: var(--success); border-radius: 999px; padding: 2px 10px; font-size: 0.8rem; font-weight: 600; }
+
+footer { padding: 24px 0 40px; font-size: 0.88rem; color: var(--muted); }
+footer .wrap { display: flex; flex-wrap: wrap; gap: 8px 18px; justify-content: space-between; }
+footer a { color: var(--muted); }
+
+@media (max-width: 520px) {
+  .hero { padding: 28px 20px; border-radius: 24px; }
+  .card { padding: 20px; }
+  .bar nav { gap: 14px; }
+}
