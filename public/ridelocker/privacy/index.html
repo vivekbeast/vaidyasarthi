@@ -24,7 +24,7 @@
     <section class="hero">
       <h1>Privacy Policy</h1>
       <p>RideLocker: Vehicle Reminders (package <code>com.ridelocker.app</code>) for Android.</p>
-      <p class="meta">Effective 8 October 2026 · Last updated 8 October 2026</p>
+      <p class="meta">Effective 8 October 2026 · Last updated 21 October 2026</p>
     </section>
 
     <section class="card summary">
@@ -34,7 +34,7 @@
         <li>RideLocker has <strong>no account, no sign-in and no servers</strong>. We never receive your data.</li>
         <li>No ads, no analytics, no tracking, and we never sell or share your information.</li>
         <li>Documents are read <strong>on your device</strong>, not in the cloud.</li>
-        <li>The app connects to the internet only to check for app updates, to download the optional offline AI model, and for Google Play services. It sends none of your records.</li>
+        <li>The app connects to the internet only to check for app updates, to download optional on-device tools (the offline AI model and the photo cut-out model), when you ask it to find photos of your vehicle model online, and for Google Play services. It sends none of your records.</li>
       </ul>
     </section>
 
@@ -81,9 +81,11 @@
       <ul>
         <li><strong>App updates (Expo).</strong> When the app opens, it checks with Expo's update service (expo.dev) for an improved version of the app's code. The request includes technical details only: app version, platform and update channel. As with any connection, Expo can see your IP address. See <a href="https://expo.dev/privacy">Expo's privacy policy</a>.</li>
         <li><strong>Offline AI model download (Hugging Face).</strong> Only if you turn on Ride AI, as described in section 3.</li>
+        <li><strong>Find photos online (Wikimedia Commons).</strong> Only when you tap "Find photos online" for a vehicle. The app sends Wikimedia Commons the maker and model you search for (for example "Royal Enfield Classic 350") and downloads the freely licensed photo you pick. Nothing else is sent — no number plate, document or personal detail. The photo is cut out on your phone and its photographer and licence are shown in the app. See the <a href="https://foundation.wikimedia.org/wiki/Policy:Privacy_policy">Wikimedia privacy policy</a>.</li>
+        <li><strong>Photo cut-out model (Google Play services).</strong> To lift your vehicle out of a photo on your phone, the app uses Google's ML Kit, whose model Google Play services downloads once. Your photos are processed on the device and are not uploaded.</li>
         <li><strong>Google Play.</strong> Google Play installs and updates the app, handles your purchase, and may check that your copy is genuine. See <a href="https://policies.google.com/privacy">Google's privacy policy</a>.</li>
       </ul>
-      <p>None of these connections carries your vehicle details, documents, photos, reminders or notes. RideLocker contains no advertising, analytics or crash-reporting SDKs.</p>
+      <p>None of these connections carries your documents, photos, number plates, reminders or notes; a photo search carries only the maker and model words you search for. RideLocker contains no advertising, analytics or crash-reporting SDKs.</p>
     </section>
 
     <section class="card">
